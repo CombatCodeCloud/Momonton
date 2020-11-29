@@ -26,6 +26,7 @@ function saveToDos()
 
 function paintToDo(text)
 {
+    //note: fix bug where muiltiple todos are deleted
     const li = document.createElement("li");
     const delBtn = document.createElement("button");
     const span = document.createElement("span");

@@ -6,12 +6,11 @@ const TODOS_LS = 'toDos';
 
 let toDos = [];
 
-function deleteToDo(event)
-{
+function deleteToDo(event) {
     const btn = event.target;
     const li = btn.parentNode;
     toDoList.removeChild(li);
-    const cleanToDos = toDos.filter(function(toDo){
+    const cleanToDos = toDos.filter(function (toDo) {
         return toDo.id !== parseInt(li.id);
     });
     console.log(cleanToDos);
@@ -19,16 +18,15 @@ function deleteToDo(event)
     saveToDos();
 }
 
-function saveToDos()
-{
+function saveToDos() {
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }
 
-function paintToDo(text)
-{
+function paintToDo(text) {
     //note: fix bug where muiltiple todos are deleted
     const li = document.createElement("li");
     const delBtn = document.createElement("button");
+    delBtn.className = "toDo__button";
     const span = document.createElement("span");
     const newId = Date.now();
     delBtn.innerHTML = "❌";
@@ -47,30 +45,25 @@ function paintToDo(text)
     saveToDos();
 }
 
-function handleSubmit()
-{
+function handleSubmit() {
     event.preventDefault();
     const currentValue = toDoInput.value;
     paintToDo(currentValue);
     toDoInput.value = "";
 }
 
-function loadToDos()
-{
+function loadToDos() {
     const loadedToDos = localStorage.getItem(TODOS_LS);
-    if(loadedToDos !== null)
-    {
+    if (loadedToDos !== null) {
         const parsedToDos = JSON.parse(loadedToDos);
-        parsedToDos.forEach(function(toDo)
-        {
+        parsedToDos.forEach(function (toDo) {
             paintToDo(toDo.text);
         });
     }
 }
 
 
-function init()
-{
+function init() {
     loadToDos();
     toDoForm.addEventListener("submit", handleSubmit)
 }

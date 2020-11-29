@@ -1,6 +1,12 @@
-body
+body,
+html 
 {
-    background-color: #2c3e50;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
 }
 
 .btn
@@ -10,7 +16,38 @@ body
 
 body
 {
-    color: #34495e;
+    padding-top: 15%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 80px;
+    background-color: #2c3e50;
+}
+
+input 
+{
+    font-size: 32px;
+    background: none;
+    appearance: none;
+    border: 10px;
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+input::placeholder 
+{
+    color: white;
+}
+
+input:focus,
+input:active 
+{
+  outline: none;
+}
+
+ul{
+    padding-right: 5%;
+    list-style-type: none;
+    font-size: 20px;
 }
 
 .clicked
@@ -18,15 +55,23 @@ body
     color: #7f8c8d
 }
 
+.js-clock h1
+{
+    margin: 0;
+    margin-bottom: 5px;
+}
+
 .form,
 .greetings
 {
+    margin: 0;
     display: none;
 }
 
 .showing
 {
     display: block;
+    font-size: 32px;
 }
 
 @keyframes fadeIn
@@ -50,4 +95,20 @@ body
     height: 100%;
     z-index: -1;
     animation: fadeIn .5s linear;
+}
+
+.toDo__button 
+{
+    background-color: rgba(0, 0, 0, 0);
+    border-color:  rgba(0, 0, 0, 0);
+}
+
+.js-weather 
+{
+    position: absolute;
+    font-style: italic;
+    font-size: 15px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
 }
